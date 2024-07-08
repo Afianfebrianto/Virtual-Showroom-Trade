@@ -10,7 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.kkn.virtualshowroomtrade.component.ImageSwitcher
 import com.kkn.virtualshowroomtrade.ui.theme.VirtualShowroomTradeTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,12 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VirtualShowroomTradeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MainScreen()
             }
         }
     }
@@ -44,4 +41,15 @@ fun GreetingPreview() {
     VirtualShowroomTradeTheme {
         Greeting("Android")
     }
+}
+
+@Composable
+fun MainScreen() {
+    ImageSwitcher(
+        images = listOf(
+            painterResource(R.drawable.image1),
+            painterResource(R.drawable.image2),
+            painterResource(R.drawable.image3)
+        )
+    )
 }
